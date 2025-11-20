@@ -79,6 +79,7 @@ The interactive terminal supports the following commands:
 | `github` | Open GitHub profile |
 | `linkedin` | Open LinkedIn profile |
 | `email` | Open email client |
+| `cv` or `resume` | Download CV/Resume |
 | `:q` | Close terminal |
 
 ### Keyboard Shortcuts
@@ -105,10 +106,24 @@ portfolio/
 │   │   └── style.css          # Main stylesheet
 │   ├── js/
 │   │   └── script.js           # Main JavaScript file
+│   ├── cv/
+│   │   └── Subash_Aryal_CV.pdf # CV/Resume PDF file
 │   └── img/                    # Images directory
 ├── index.html                  # Main HTML file
 └── README.md                   # This file
 ```
+
+## 📄 CV/Resume Download
+
+The portfolio includes CV download functionality:
+
+1. **Download Button** - Available in the About section
+2. **Contact Section** - CV download link alongside other contact methods
+3. **Terminal Command** - Type `cv` or `resume` in the terminal to download
+
+**To add your CV:**
+- Place your PDF file at `assets/cv/Subash_Aryal_CV.pdf`
+- Or update the file path in `index.html` if using a different filename
 
 ## 🎯 Key Features Explained
 

@@ -141,15 +141,39 @@ body {
 }
 
 .logo {
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
     text-decoration: none;
-    transition: color var(--transition-base);
+    transition: opacity var(--transition-base);
 }
 
 .logo:hover {
-    color: var(--accent-hover);
+    opacity: 0.8;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.logo-text {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--accent);
+    display: none; /* Hide text when logo image is available */
+}
+
+/* Show text logo on smaller screens or if image fails to load */
+@media (max-width: 768px) {
+    .logo-img {
+        display: none;
+    }
+    
+    .logo-text {
+        display: block;
+    }
 }
 
 .nav {
@@ -564,6 +588,92 @@ body {
     font-size: var(--font-size-base);
     color: var(--text-primary);
     font-weight: 500;
+}
+
+/* CV Download Button */
+.cv-download-wrapper {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    justify-content: center;
+}
+
+.cv-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--accent);
+    color: var(--bg-primary);
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    transition: all var(--transition-base);
+    border: 2px solid var(--accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.cv-download-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-hover);
+    transition: left var(--transition-base);
+    z-index: 0;
+}
+
+.cv-download-btn:hover::before,
+.cv-download-btn:focus::before {
+    left: 0;
+}
+
+.cv-download-btn:hover,
+.cv-download-btn:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(189, 147, 249, 0.4);
+    outline: none;
+}
+
+.cv-download-btn:active {
+    transform: translateY(0);
+}
+
+.cv-download-btn span,
+.cv-download-btn .cv-icon {
+    position: relative;
+    z-index: 1;
+}
+
+.cv-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    transition: transform var(--transition-base);
+}
+
+.cv-download-btn:hover .cv-icon,
+.cv-download-btn:focus .cv-icon {
+    transform: translateY(2px);
+}
+
+.contact-link.cv-link {
+    background: var(--accent);
+    color: var(--bg-primary);
+    border-color: var(--accent);
+}
+
+.contact-link.cv-link:hover,
+.contact-link.cv-link:focus {
+    background: var(--accent-hover);
+    color: var(--bg-primary);
+    border-color: var(--accent-hover);
+    transform: translateX(4px) translateY(-2px);
+    box-shadow: 0 6px 16px rgba(189, 147, 249, 0.4);
 }
 
 /* Skills Section */

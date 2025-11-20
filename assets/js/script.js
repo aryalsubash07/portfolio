@@ -247,6 +247,7 @@ ${CommandSystem.formatCommand('contact', 'Contact info')}
 ${CommandSystem.formatCommand('github', 'Open GitHub')}
 ${CommandSystem.formatCommand('linkedin', 'Open LinkedIn')}
 ${CommandSystem.formatCommand('email', 'Send email')}
+${CommandSystem.formatCommand('cv', 'Download CV/Resume')}
 ${CommandSystem.formatCommand(':q', 'Close terminal')}`
             }),
 
@@ -312,6 +313,21 @@ or conversations about DevOps, cloud infrastructure, and automation.`
             email: () => {
                 window.location.href = `mailto:${LINKS.email}?subject=Portfolio%20Inquiry`;
                 return { type: 'success', content: 'Opening email client...' };
+            },
+
+            cv: () => {
+                const link = document.createElement('a');
+                link.href = 'assets/cv/Subash_Aryal_CV.pdf';
+                link.download = 'Subash_Aryal_CV.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                return { type: 'success', content: 'Downloading CV...' };
+            },
+
+            resume: () => {
+                // Alias for cv command
+                return CommandSystem.commands.cv();
             },
 
             ':q': () => {

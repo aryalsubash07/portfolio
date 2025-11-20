@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#bd93f9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8be9fd;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Terminal icon -->
+  <g transform="translate(0, 10)">
+    <rect x="0" y="0" width="40" height="30" rx="3" fill="#21222c" stroke="#bd93f9" stroke-width="1.5"/>
+    <circle cx="8" cy="8" r="2.5" fill="#ff5555"/>
+    <circle cx="16" cy="8" r="2.5" fill="#f1fa8c"/>
+    <circle cx="24" cy="8" r="2.5" fill="#50fa7b"/>
+    <text x="5" y="22" font-family="monospace" font-size="10" fill="#8be9fd">❯</text>
+    <rect x="13" y="18" width="2" height="10" fill="#50fa7b"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="50" y="25" font-family="'JetBrains Mono', monospace" font-size="20" font-weight="600" fill="url(#logoGrad)">Subash</text>
+  <text x="50" y="45" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="400" fill="#6272a4">Aryal</text>
+  
+  <!-- Accent line -->
+  <line x1="50" y1="50" x2="190" y2="50" stroke="#bd93f9" stroke-width="1.5" opacity="0.5"/>
+</svg>
+
