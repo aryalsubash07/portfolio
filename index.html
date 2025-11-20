@@ -37,13 +37,6 @@
     
     <title>Subash Aryal | DevOps Engineer Portfolio</title>
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon.svg">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon.svg">
-    <link rel="manifest" href="assets/img/site.webmanifest">
-    
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,11 +68,17 @@
     </script>
 </head>
 <body>
+    <!-- Site-wide Animated Background -->
+    <div class="site-background">
+        <canvas id="siteCanvas" class="site-canvas"></canvas>
+        <div class="site-grid-overlay"></div>
+    </div>
+    
     <!-- Header -->
     <header class="header">
         <div class="header-content">
             <a href="#home" class="logo">
-                <img src="assets/img/logo.svg" alt="Subash Aryal" class="logo-img" width="180" height="54">
+                <img src="assets/img/logo.svg" alt="Subash Aryal" class="logo-img">
                 <span class="logo-text">Subash Aryal</span>
             </a>
             <nav>
@@ -91,12 +90,18 @@
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
+            <button class="anim-toggle" id="animToggle" aria-label="Toggle animations" title="Reduce animations">
+                <svg class="anim-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 6v6l4 2"></path>
+                </svg>
+            </button>
         </div>
     </header>
 
     <!-- Main Content -->
     <main>
-        <!-- Hero/Intro Section - Unique Design -->
+        <!-- Hero/Intro Section - Revolutionary Design -->
         <section id="home" class="hero-intro">
             <div class="container">
                 <div class="intro-wrapper">
@@ -107,9 +112,10 @@
                                 <span class="code-dot"></span>
                                 <span class="code-dot"></span>
                                 <span class="code-title">subash.yaml</span>
+                                <span class="code-status">● Live</span>
                             </div>
-                            <div class="code-content">
-                                <pre><code><span class="code-key">name:</span> <span class="code-string">"Subash Aryal"</span>
+                            <div class="code-content" id="codeContent">
+                                <pre><code id="typedCode"><span class="code-key">name:</span> <span class="code-string">"Subash Aryal"</span>
 <span class="code-key">role:</span> <span class="code-string">"DevOps Engineer"</span>
 <span class="code-key">location:</span> <span class="code-string">"Nepal"</span>
 <span class="code-key">passion:</span>
@@ -118,6 +124,10 @@
   <span class="code-key">-</span> <span class="code-string">"Container Orchestration"</span>
 <span class="code-key">mission:</span> <span class="code-string">"Design stable, scalable systems"</span>
 <span class="code-key">status:</span> <span class="code-value">available</span></code></pre>
+                            </div>
+                            <div class="code-footer">
+                                <span class="code-line-count">11 lines</span>
+                                <span class="code-language">YAML</span>
                             </div>
                         </div>
                     </div>
@@ -406,12 +416,16 @@
         </div>
     </footer>
 
-    <!-- Terminal - Unique & Simple -->
-    <div class="terminal-container" id="terminalContainer" role="region" aria-label="Terminal">
-        <div class="terminal-header">
-            <span class="terminal-title">terminal</span>
-            <button class="terminal-close" id="closeTerminal" aria-label="Close terminal" title="Close (:q)">×</button>
-        </div>
+            <!-- Terminal - Unique & Simple -->
+            <div class="terminal-container" id="terminalContainer" role="region" aria-label="Terminal">
+                <div class="terminal-hint" id="terminalHint" aria-hidden="true">
+                    <span class="hint-text">💡 Try typing commands here! Press ` or ~ to reopen.</span>
+                    <button class="hint-close" id="closeHint" aria-label="Dismiss hint">×</button>
+                </div>
+                <div class="terminal-header">
+                    <span class="terminal-title">terminal</span>
+                    <button class="terminal-close" id="closeTerminal" aria-label="Close terminal" title="Close (:q)">×</button>
+                </div>
         <div class="terminal-body">
             <div class="command-history" id="commandHistory" role="log" aria-live="polite" aria-atomic="false"></div>
             <div class="command-input-line">
